@@ -43,6 +43,6 @@ filtertool -i /var/data/${RESULT_PREFIX}.pileup -o /var/data/${RESULT_PREFIX}.fi
   --count 6 \
   --freq 0.5 \
   --verbose \
-  --alg fishers,p=0.1
+#  --alg fishers,p=0.1
 
 echo "[basic-wf][x] Your workflow is done. Bye."
