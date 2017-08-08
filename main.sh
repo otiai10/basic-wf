@@ -20,10 +20,15 @@ fi
 
 RESULT_PREFIX=result.${INPUT01}_x_${INPUT02}
 
-echo "[basic-wf][debug] >>> count file lines"
-wc -l /var/data/${INPUT01}
-wc -l /var/data/${INPUT02}
-wc -l /var/refs/${REFERENCE}
+echo "[basic-wf][0] >>> Decompress files if having \".tar.bz2\" extension: '${INPUT01}', '${INPUT02}'"
+if [[ ${INPUT01} == *.tar.bz2 ]]; then
+  tar xvjf /var/data/${INPUT01} --directory /var/data
+  INPUT01=`echo ${INPUT01} | sed "s/\.tar.bz2$//"`
+fi
+if [[ ${INPUT02} == *.tar.bz2 ]]; then
+  tar xvjf /var/data/${INPUT02} --directory /var/data
+  INPUT02=`echo ${INPUT02} | sed "s/\.tar.bz2$//"`
+fi
 
 echo "[basic-wf][1] >>> align provided read samples: '${INPUT01}', '${INPUT02}'"
 /bin/bwa mem /var/refs/${REFERENCE} /var/data/${INPUT01} /var/data/${INPUT02} > /var/data/${RESULT_PREFIX}.sam
