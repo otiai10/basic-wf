@@ -1,0 +1,21 @@
+inputs:
+  INPUT01:
+    type: file
+    required: true
+  INPUT02:
+    type: file
+    required: true
+  REFERENCE:
+    type: file
+    required: true
+outputs:
+  SAM:
+    aka: result.${INPUT01}_x_${INPUT02}.sam
+  BAM:
+    aka: result.${INPUT01}_x_${INPUT02}.bam
+  SORTED_BAM:
+    aka: result.${INPUT01}_x_${INPUT02}.sorted.bam
+  PILEUP:
+    aka: result.${INPUT01}_x_${INPUT02}.pileup
+  MUTATION_VCF:
+    aka: result.${INPUT01}_x_${INPUT02}.vcf
