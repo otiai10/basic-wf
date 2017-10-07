@@ -11,13 +11,20 @@ self:
       url: https://hub.docker.com/r/otiai10/basic-wf/
 inputs:
   INPUT01:
-    type: file
+    description: either of read pair
+    form:
+      type: file
     required: true
   INPUT02:
-    type: file
+    description: either of read pair
+    form:
+      type: file
     required: true
   REFERENCE:
-    type: file
+    form:
+      type: select
+      options:
+        - GRCh37
     required: true
 outputs:
   SAM:
