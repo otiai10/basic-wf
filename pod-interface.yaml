@@ -1,4 +1,14 @@
 runtime: ./Dockerfile
+self:
+  name: otiai10/basic-wf
+  version: 0.0.1
+  introduction: |
+    BWA mem and mutation-call by `filtertool`, which filters mutation with very simple way. See https://github.com/otiai10/filtertool for more information.
+  author: otiai10 <otiai10@gmail.com>
+  registry:
+    - service: dockerhub
+      namespace: otiai10/basic-wf
+      url: https://hub.docker.com/r/otiai10/basic-wf/
 inputs:
   INPUT01:
     type: file
